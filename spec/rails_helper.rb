@@ -7,6 +7,13 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'shoulda/matchers'
 require 'devise'
+require 'vcr'
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/cassettes'
+  c.hook_into :webmock
+  c.configure_rspec_metadata!
+end
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -66,14 +73,14 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-describe 'Achievment' do
-    context 'validations' do
-      before { FactoryGirl.build(:achievement) }
+# describe 'Achievment' do
+#     context 'validations' do
+#       before { FactoryGirl.build(:achievement) }
 
-      it do
-        should validate_uniqueness_of(:title).
-          scoped_to(:user_id).
-          case_insensitive
-      end
-    end
-end
+#       it do
+#         should validate_uniqueness_of(:title).
+#           scoped_to(:user_id).
+#           case_insensitive
+#       end
+#     end
+# end
