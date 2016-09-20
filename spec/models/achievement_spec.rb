@@ -48,6 +48,7 @@ RSpec.describe Achievement, type: :model do
     # end
  
     it { should belong_to(:user) }
+    it { should have_many(:encouragements) }
 
     it 'converts markdown to html' do
       achievement = Achievement.new(description: 'Awesome **thing** I *actually* did')
