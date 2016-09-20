@@ -66,14 +66,14 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-describe 'Achievment' do
-    context 'validations' do
-      before { FactoryGirl.build(:achievement) }
+# describe 'Achievment' do
+#     context 'validations' do
+#       before { FactoryGirl.build(:achievement) }
 
-      it do
-        should validate_uniqueness_of(:title).
-          scoped_to(:user_id).
-          case_insensitive
-      end
-    end
-end
+#       it do
+#         should validate_uniqueness_of(:title).
+#           scoped_to(:user_id).
+#           case_insensitive
+#       end
+#     end
+# end
